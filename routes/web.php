@@ -30,6 +30,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Cari bagian ini dan ubah:
 Route::get('/dashboard', [DocumentController::class, 'index'])->name('dashboard');
 
+// Route Manajemen Kategori / Folder
+    Route::get('/categories', [App\Http\Controllers\CategoryController::class, 'index'])->name('categories.index');
+    Route::post('/categories', [App\Http\Controllers\CategoryController::class, 'store'])->name('categories.store');
+    Route::delete('/categories/{category}', [App\Http\Controllers\CategoryController::class, 'destroy'])->name('categories.destroy');
+
 
 });
 
